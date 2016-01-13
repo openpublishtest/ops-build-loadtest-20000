@@ -1,6 +1,6 @@
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <BuildTaskPackage>docfx.msbuild</BuildTaskPackage>
+    <BuildTaskPackage>opbuild</BuildTaskPackage>
     <BuildTaskProjectPath>build/docfx.msbuild.targets</BuildTaskProjectPath>
     <ToolsFolder>$(MSBuildThisFileDirectory)Tools\</ToolsFolder>
     <OutputFolder Condition="'$(OutputFolder)' == '' ">$(MSBuildThisFileDirectory)_site</OutputFolder>
@@ -30,7 +30,7 @@
     <Message Text="Use latest package version: $(UseLatestPackage)"/>
 
     <!-- Get Latest version from nuget server if latest version is needed -->
-    <XmlPeek Condition="$(UseLatestPackage)" Query="//packageSources/add[@key='Azure']/@value" XmlInputPath="$(ToolsFolder)NuGet\NuGet.config">
+    <XmlPeek Condition="$(UseLatestPackage)" Query="//packageSources/add[@key='op.myget']/@value" XmlInputPath="$(ToolsFolder)NuGet\NuGet.config">
       <Output PropertyName="NugetSource" TaskParameter="Result"/>
     </XmlPeek>
     <Message Condition="$(UseLatestPackage)" Text="NugetSource=$(NugetSource)"/>

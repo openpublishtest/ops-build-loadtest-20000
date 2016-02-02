@@ -12,7 +12,5 @@
       }
     }
   ],
-  "notification_subscribers": ["v-wushu@microsoft.com"]
+  "notification_subscribers": ["opbuild@microsoft.com"]
 }
-
-
